@@ -10,9 +10,14 @@ function API_Album_Search(artist) {
       $.ajax({
           url: detailURL,
           method: "GET"
-        }).then(function(detail_response) {      
+        }).then(function(detail_response) {   
+          $("#album_list").empty();   
           for (x=0; x<detail_response.album.length; x++) {
-            $("#album_list").append('<li><img src="' + detail_response.album[x].strAlbumThumb + '/preview"</img> ' + detail_response.album[x].strAlbum + ' (' + detail_response.album[x].intYearReleased + ')</li>');
+            //$("#album_list").append('<li><img src="' + detail_response.album[x].strAlbumThumb + '/preview"</img> ' + detail_response.album[x].strAlbum + ' (' + detail_response.album[x].intYearReleased + ')</li>');
+            $(".carousel").append('<a class="carousel-item" id = "album' + x + '" href="#one!"><img src="' + detail_response.album[x].strAlbumThumb + '/preview"></a>');
+            //$(".carousel").attr("src","detail_response.album[x].strAlbumThumb"+"/preview");
+            //$(".carousel").attr("id","album"+x);
+
           }  
         });
     
@@ -32,4 +37,8 @@ function API_Album_Search(artist) {
 
   test();
 
+    
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
   
