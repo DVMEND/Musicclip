@@ -17,33 +17,42 @@
     <!--Materialize min-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
 
+    <link rel="stylesheet" href="assets\css\style.css">
+
     <title>Document</title>
 </head>
 
-<body>
-  <div class="container">
-    <!-- <div>
-        test
-    </div> -->
-    <!-- <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1 id = albumCard">
-            <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-            </div>
-          </div>
+<body class="screenLimit">
+
+  <div class="container" id="mainContainer">
+    <div class="row">
+        <div class="col s8 m6 push-s2 push-m3 mt-2" id= "col1">
+            <img src="assets\Images\main_logo_clear.png" id ="mainLogo" alt="Main Logo">
         </div>
-    </div> -->
+    </div>
 
     <div class="row">
-      <h4 id="carousel-title"></h4>
-      <div class="col s12 m6">
+      <div class="col s12 m6 push-m3" id="col2">
+            <div id="mainPage">
+                <div class="input-field" id="artistInput">
+                    <i class="material-icons prefix">music_note</i>
+                    <input id="icon_prefix2" name= "textInput" type="text" class="validate">
+                    <label for="icon_prefix2">Artist</label>
+                </div>
+            </div>
+      </div>
+    </div>
+  
+  
+    <div class="row hide" id="row3">
+      <div class="col-12" id="col3">
+    
+      </div>
+    </div>
+
+    <div class="row hide" id="row4">
+      <h4 class="center-align" id="carousel-title"></h4>
+      <div class="col s12 m6 push-m3">
         <div class="carousel" id="albumCarousel">
             <!-- <a class="carousel-item" id = "album1" href="#one!"><img src="sample.jpg"></a>
             <a class="carousel-item" id = "album2" href="#two!"><img src="sample.jpg"></a>
@@ -53,7 +62,18 @@
         </div>
       </div>
     </div>
+
+    <div class="row hide" id="row5">
+      <h4 class="center-align" id="carousel-title2"></h4>
+      <div class="col s12 m6 push-m3">
+        <div class="carousel" id="videoCarousel">
+            
+        </div>
+      </div>
+    </div>
+
   </div>
+
 
 
 <script src="./assets/js/script.js"></script> 
