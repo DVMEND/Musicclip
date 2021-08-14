@@ -1,23 +1,21 @@
 # Project-1
-Project One – Music  
+Musicclip
 
-Project One - Music is a web application that curates all sorts of information about your favorite music bands. The site has several page tabs: 
+Musicclip is a web application that curates all sorts of information about your favorite music bands. The site has several page tabs: 
 
-1) On the video tab, you can play songs and music videos for your searched music artists. 
+1) On the video area, you can play songs and music videos for your searched music artists. 
 
-2) On the album tab, you can find a discography of albums created by your searched music artists. 
+2) On the album area, you can find a discography of albums created by your searched music artists. 
 
  
 
 Frameworks used: 
 
-Bootstrap - Jumbotron 
-
-Materialize – Album, music video, and song carousel  
+Materialize – Album, music video, and carousels  
 
  
 
-Programming Languages used: 
+Programming Languages / Technologies used: 
 
 HTML 
 
@@ -27,11 +25,13 @@ AJAX
 
 JavaScript 
 
+Photoshop
  
 
 APIs used: 
 
 TheAudioDB – Album and Song/Music Video search 
+
 
 ## User Story
 ```
