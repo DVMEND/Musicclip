@@ -6,7 +6,9 @@ function API_Album_Search(artist) {
     url: queryURL,
     method: "GET"
   }).then(function(response) { 
-    var detailURL = "https://theaudiodb.com/api/v1/json/1/album.php?i=" + response.artists[0].idArtist;    
+    var detailURL = "https://theaudiodb.com/api/v1/json/1/album.php?i=" + response.artists[0].idArtist; 
+    $("#bio-div").append('<p id="bio" class="flow-text"></p>');
+    $("#bio").html(response.artists[0].strBiographyEN);   
     $("#parallax-banner").attr("src",response.artists[0].strArtistBanner);  
     $("#carousel-title").html("Albums"); 
     $.ajax({
@@ -16,7 +18,15 @@ function API_Album_Search(artist) {
       }).then(function(detail_response) {   
         $("#albumCarousel").empty();   
         for (x=0; x<detail_response.album.length; x++) {
-          $(".carousel").append('<a class="carousel-item" id = "album' + x + '" href="#one!"><img src="' + detail_response.album[x].strAlbumThumb + '/preview"></a>');
+          if (detail_response.album[x].strAlbumThumb){
+            var albumImg = detail_response.album[x].strAlbumThumb;
+          }
+          else{
+            var albumImg = "assets/Images/main_logo_clear.png";
+          }
+          //$(".carousel").append('<a class="carousel-item" id = "album' + x + '" href="#one!"><img src="' + detail_response.album[x].strAlbumThumb + '/preview"></a>');
+          //$("#albumCarousel").append('<div class="card carousel-item"><div class="card-content"><span class="card-title">' + detail_response.album[x].strAlbum + ' ('+ detail_response.album[x].intYearReleased + ')' + '</span><a target=_blank href="' + detail_response.album[x].strMusicVid + '"><img title="'+ detail_response.album[x].strTrack+'" src="' + albumImg + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
+          $("#albumCarousel").append('<div class="card carousel-item hoverable"><div class="card-content"><span class="card-title">' + detail_response.album[x].strAlbum + ' ('+ detail_response.album[x].intYearReleased + ')' + '</span><a><img onclick="API_Track_Search(' + detail_response.album[x].idAlbum + ')" title="'+ detail_response.album[x].strTrack+'" src="' + albumImg + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
         } 
         //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
         if ($(".carousel").hasClass('initialized')){
@@ -27,6 +37,46 @@ function API_Album_Search(artist) {
       });
   });
 }
+
+function API_Track_Search(albumId) {
+  var queryURL = "https://theaudiodb.com/api/v1/json/1/track.php?m=" + albumId;
+  console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      //takes the api data and applies it to the album carousel 
+      }).then(function(detail_response) {   
+        console.log(detail_response)
+        $("#tableBody").empty();
+        $("#row6").removeClass("hide");
+         for (x=0; x<detail_response.track.length; x++) {
+          console.log (detail_response.track[x].strTrack + detail_response.track[x].intTrackNumber + detail_response.track[x].intDuration);
+          var seconds = (detail_response.track[x].intDuration /1000).toFixed(0) % 60;
+          var minutes = Math.floor(( detail_response.track[x].intDuration / 60000), 0)
+          console.log( minutes + ":" + (seconds < 10 ? '0' : '') + seconds);
+          var lengthFormatted = minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+
+          $("#tableBody").append("<tr id=tableElement" + x + "></tr>");
+
+          $("#tableElement" + x ).append("<td>"+ detail_response.track[x].intTrackNumber + "</td>");
+          $("#tableElement" + x ).append("<td>"+ detail_response.track[x].strTrack + "</td>");
+          $("#tableElement" + x ).append("<td>"+ lengthFormatted + "</td>");
+
+        } 
+        
+  })};
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Function that takes the artist name and pulls data from the audiodb api to get videos 
 function API_Video_Search(artist) {
@@ -47,7 +97,13 @@ function API_Video_Search(artist) {
         $("#videoCarousel").empty();
         console.log(detail_response);  
         for (x=0; x<detail_response.mvids.length; x++) {
-          $("#videoCarousel").append('<div class="card carousel-item"><div class="card-content"><span class="card-title">' + detail_response.mvids[x].strTrack + '</span><a target=_blank href="' + detail_response.mvids[x].strMusicVid + '"><img src="' + detail_response.mvids[x].strTrackThumb + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
+          if (detail_response.mvids[x].strTrackThumb){
+            var videoImg = detail_response.mvids[x].strTrackThumb;
+          }
+          else{
+            var videoImg = "assets/Images/main_logo_clear.png";
+          }
+          $("#videoCarousel").append('<div class="card carousel-item" hoverable><div class="card-content"><span class="card-title">' + detail_response.mvids[x].strTrack + '</span><a target=_blank href="' + detail_response.mvids[x].strMusicVid + '"><img title="'+ detail_response.mvids[x].strTrack+'" src="' + videoImg + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
         } 
         //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
         if ($("#videoCarousel").hasClass('initialized')){
@@ -71,7 +127,7 @@ function test() {
         //Hides the starting screen
         $("#col1, #col2").hide();
         //Shows the rows that are going to have content inserted 
-        $("#row3, #row4, #row5").removeClass("hide");
+        $("#row3, #row4, #row5, #row7").removeClass("hide");
         //removes the limits on vertical scrolling;
         $("body").removeClass("screenLimit");
         //Appends the div containing the band banner to col3
@@ -82,6 +138,8 @@ function test() {
         API_Album_Search(artist);
         //calls the function with the input 'artist' that generates the artist video carousel
         API_Video_Search(artist);
+
+
         e.preventDefault();
        
       }

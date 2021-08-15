@@ -26,6 +26,7 @@
 
   <div class="container" id="mainContainer">
     <div class="row">
+      <!-- Makes columns responsive. Pushes 2 columns right when small screen pushes 3 right when medium screen  -->
         <div class="col s8 m6 push-s2 push-m3 mt-2" id= "col1">
             <img src="assets\Images\main_logo_clear.png" id ="mainLogo" alt="Main Logo">
         </div>
@@ -51,6 +52,13 @@
     </div>
 
     <div class="row hide" id="row4">
+      <div class="col-12" id="col4">
+        <div id="bio-div"></div>
+      </div>
+    </div>
+
+
+    <div class="row hide" id="row5">
       <h4 class="center-align" id="carousel-title"></h4>
       <div class="col s12 m6 push-m3">
         <div class="carousel" id="albumCarousel">
@@ -63,7 +71,24 @@
       </div>
     </div>
 
-    <div class="row hide" id="row5">
+    <div class ="row hide" id="row6">
+      <div class="col s12 m10 push-m1" id="tracksColumn">
+        <table class="striped centered">
+          <thead>
+            <tr>
+              <th>Track Number</th>
+              <th>Track Name</th>
+              <th>Track Length</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row hide" id="row7">
       <h4 class="center-align" id="carousel-title2"></h4>
       <div class="col s12 m6 push-m3">
         <div class="carousel" id="videoCarousel">
