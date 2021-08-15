@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 #What is Musicclip 
+=======
+#What is Musicclip?
+>>>>>>> Stashed changes
 
 Musicclip is a web application that curates all sorts of information about your favorite music bands. To start, type in your music artist name to the search bar (for example: The Beatles,  Billie Ellish, Lorde, Metallica,).
 
@@ -16,7 +20,11 @@ Musicclip was made as a tool to discover produced albums and music videos by mus
 
 ---
 
+<<<<<<< Updated upstream
 #What is used to build Musicclip
+=======
+#What is used to build Musicclip?
+>>>>>>> Stashed changes
 Frameworks used: 
 
 Materialize (for CSS)– Album and music video carousels, home page, and navigation bar styling 
