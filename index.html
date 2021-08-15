@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+album-search
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,16 +24,35 @@
 </head>
 
 <body class="screenLimit">
+  <div class="navbar-fixed">
+    <nav class="#607d8b blue-grey hide">
+      <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img class="one" src="assets\Images\main_logo_clear.png" width="150" height="65" alt=""></a>
+          <a href="#" data-target= "mobile-demo" class=" sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#bio-title">Bio</a></li>
+        <li><a href="#carousel-title">Album</a></li>
+        <li><a href="#carousel-title2">Videos</a></li>
+      </div>
+    </nav>
+  </div>
+  <ul class= "sidenav" id="mobile-demo">
+        <li><a href="#bio-title">Bio</a></li>
+        <li><a href="#carousel-title">Albums</a></li>
+        <li><a href="#carousel-title2">Videos</a></li>
+  </ul>
 
   <div class="container" id="mainContainer">
-    <div class="row">
+
+  
+    <div class="row" id="row1">
       <!-- Makes columns responsive. Pushes 2 columns right when small screen pushes 3 right when medium screen  -->
         <div class="col s8 m6 push-s2 push-m3 mt-2" id= "col1">
             <img src="assets\Images\main_logo_clear.png" id ="mainLogo" alt="Main Logo">
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="row2">
       <div class="col s12 m6 push-m3" id="col2">
             <div id="mainPage">
                 <div class="input-field" id="artistInput">
@@ -43,16 +63,16 @@
             </div>
       </div>
     </div>
-  
-  
+
     <div class="row hide" id="row3">
-      <div class="col-12" id="col3">
+      <div class="col-12" id="banner">
     
       </div>
     </div>
 
     <div class="row hide" id="row4">
-      <div class="col-12" id="col4">
+      <h4 class="center-align" id="bio-title"></h4>
+      <div class="col-12" id="bioColumn">
         <div id="bio-div"></div>
       </div>
     </div>
@@ -72,7 +92,8 @@
     </div>
 
     <div class ="row hide" id="row6">
-      <div class="col s12 m10 push-m1" id="tracksColumn">
+      <h4 class="center-align" id="albumName"></h4>
+      <div class="col s12 m8 push-m2" id="tracksColumn">
         <table class="striped centered">
           <thead>
             <tr>
@@ -104,4 +125,4 @@
 <script src="./assets/js/script.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-</html>
+<html

@@ -1,3 +1,4 @@
+album-search
 /* Disables scrolling on the horizontal axis, ands a background image for the page  */
 html, body {
     overflow-x:hidden;
@@ -53,5 +54,19 @@ html, body {
 /* Sets the width of the band banner to be 100% of the screen at all times */
 #parallax-banner{
     width:100%;
+    margin-top:0px;
 
 }
+
+img .one{
+    height: auto;
+    width: auto;
+}
+/* nav a{
+    
+} */
+.card .card-title{
+    font-size:20px;
+    background-color:lightblue;
+}
+main
