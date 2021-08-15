@@ -8,8 +8,9 @@ function API_Album_Search(artist) {
   }).then(function(response) { 
     var detailURL = "https://theaudiodb.com/api/v1/json/1/album.php?i=" + response.artists[0].idArtist; 
     $("#bio-title").html("Artist Bio"); 
-    $("#bio-div").append('<p id="bio" class="flow-text"></p>');
-    $("#bio").html(response.artists[0].strBiographyEN);   
+    //$("#bio-div").append('<p id="bio" class="flow-text"></p>');
+    //$("#bio").html(response.artists[0].strBiographyEN);   
+    $("#bioText").html(response.artists[0].strBiographyEN);
     $("#parallax-banner").attr("src",response.artists[0].strArtistBanner);  
     $("#carousel-title").html("Albums"); 
     $.ajax({
@@ -105,7 +106,7 @@ function API_Video_Search(artist) {
           else{
             var videoImg = "assets/Images/main_logo_clear.png";
           }
-          $("#videoCarousel").append('<div class="card carousel-item" hoverable><div class="card-content"><span class="card-title">' + detail_response.mvids[x].strTrack + '</span><a target=_blank href="' + detail_response.mvids[x].strMusicVid + '"><img title="'+ detail_response.mvids[x].strTrack+'" src="' + videoImg + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
+          $("#videoCarousel").append('<div class="card carousel-item hoverable"><div class="card-content"><span class="card-title">' + detail_response.mvids[x].strTrack + '</span><a target=_blank href="' + detail_response.mvids[x].strMusicVid + '"><img title="'+ detail_response.mvids[x].strTrack+'" src="' + videoImg + '" style="height:100%;width:100%;object-fit:cover"></a></div></div>');
         } 
         //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
         if ($("#videoCarousel").hasClass('initialized')){
@@ -129,7 +130,7 @@ function test() {
         //Hides the starting screen
         $("#row1, #row2").hide();
         //Shows the rows that are going to have content inserted 
-        $("#row3, #row4, #row5, #row7, nav").removeClass("hide");
+        $("#row3, #row4, #row5, #row7, nav, #mobile-demo").removeClass("hide");
         //removes the limits on vertical scrolling;
         $("body").removeClass("screenLimit");
         //Appends the div containing the band banner to col3
@@ -171,4 +172,9 @@ document.addEventListener('keydown', function(e) {
 
 $(document).ready(function(){
   $('.sidenav').sidenav();
+});
+
+//initializes the collapsible div 
+$(document).ready(function(){
+  $('.collapsible').collapsible();
 });
