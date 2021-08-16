@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-album-search
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,16 +26,42 @@ album-search
   <div class="navbar-fixed">
     <nav class="#607d8b blue-grey hide">
       <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><img class="one" src="assets\Images\main_logo_clear.png" width="150" height="65" alt=""></a>
+          <a href="#row3" class="brand-logo"><img class="one" src="assets\Images\main_logo_clear.png" width="150" height="65" alt=""></a>
           <a href="#" data-target= "mobile-demo" class=" sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+
+        <li>    
+          <div class="center row">
+             <div class="col s12 " >
+               <div class="row" id="navbarsearch">
+                 <div class="input-field col s6 s12 black-text">
+                  <i class="material-icons prefix">music_note</i>
+                   <input type="text" placeholder="Artist" id="icon_prefix2_navbar" class="autocomplete black-text" >
+                  </div>
+                 </div>
+               </div>
+             </div>          
+         </li>
+
         <li><a href="#bio-title">Bio</a></li>
         <li><a href="#carousel-title">Album</a></li>
         <li><a href="#carousel-title2">Videos</a></li>
       </div>
     </nav>
   </div>
-  <ul class= "sidenav" id="mobile-demo">
+  <ul class= "sidenav hide" id="mobile-demo">
+        <li>    
+          <div class="center row">
+             <div class="col s12 " >
+               <div class="row" id="sidenavsearch">
+                 <div class="input-field col s6 s12 black-text">
+                  <i class="material-icons prefix">music_note</i>
+                   <input type="text" placeholder="Artist" id="icon_prefix2_sidenav" class="autocomplete black-text" >
+                  </div>
+                 </div>
+               </div>
+             </div>          
+         </li>    
         <li><a href="#bio-title">Bio</a></li>
         <li><a href="#carousel-title">Albums</a></li>
         <li><a href="#carousel-title2">Videos</a></li>
@@ -72,7 +97,13 @@ album-search
 
     <div class="row hide" id="row4">
       <h4 class="center-align" id="bio-title"></h4>
-      <div class="col-12" id="bioColumn">
+      <div class="col s10 m6 push-s1 push-m3" id="bioColumn">
+        <ul class="collapsible" id="bioCollapse">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">info</i>Artist Bio</div>
+            <div class="collapsible-body"><span id="bioText" class="flow-text"></span></div>
+          </li>
+          <li>
         <div id="bio-div"></div>
       </div>
     </div>
@@ -125,4 +156,4 @@ album-search
 <script src="./assets/js/script.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-<html
+</html>
