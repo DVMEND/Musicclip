@@ -17,7 +17,9 @@ function API_Album_Search(artist) {
         url: detailURL,
         method: "GET"
       //takes the api data and applies it to the album carousel 
-      }).then(function(detail_response) {   
+      }).then(function(detail_response) { 
+        // hides any previous track listing table when searching a new artist.
+        $("#row6").addClass("hide");  
         $("#albumCarousel").empty();   
         for (x=0; x<detail_response.album.length; x++) {
           if (detail_response.album[x].strAlbumThumb){
@@ -145,8 +147,37 @@ function test() {
 
         e.preventDefault();
        
-      }
+      }      
     });
+    
+
+    $("#navbarsearch").keyup(function (e) {
+      if (e.which == 13) {   
+        artist=$("#icon_prefix2_navbar").val();
+        //calls the function with the input 'artist' that generates the album art carousel
+        API_Album_Search(artist);
+        //calls the function with the input 'artist' that generates the artist video carousel
+        API_Video_Search(artist);
+        // clears the input field to be ready for the next search.
+        $("#icon_prefix2_navbar").val("");
+        e.preventDefault();
+      }      
+    });
+
+
+    $("#sidenavsearch").keyup(function (e) {
+      if (e.which == 13) {   
+        artist=$("#icon_prefix2_sidenav").val();
+        //calls the function with the input 'artist' that generates the album art carousel
+        API_Album_Search(artist);
+        //calls the function with the input 'artist' that generates the artist video carousel
+        API_Video_Search(artist);
+        // clears the input field to be ready for the next search.
+        $("#icon_prefix2_sidenav").val("");
+        e.preventDefault();
+      }      
+    });
+    
   }); 
  
 }
