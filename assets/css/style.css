@@ -1,6 +1,77 @@
-img.one{
-    height: auto;
-    width: auto;
-}nav a{
+/* Disables scrolling on the horizontal axis, ands a background image for the page  */
+html, body {
+    overflow-x:hidden;
+    background-color:#373e40;
+    background-image:url('../Images/Miaka.jpg');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* Removes scrolling from the starting page */
+.screenLimit{
+    margin: 0; height: 100%; overflow-x: hidden; 
+}
+
+/*Sets the width of the main container to take up the whole viewport width  */
+#mainContainer{
+    min-width:100vw;
+    margin-left:0;
     
 }
+
+/* Sets the margins and size for the site logo */
+#mainLogo{
+    margin-top:3em;
+    max-width:100%;
+    max-height:100%;
+}
+
+/* Sets size and position of the input field container */
+#mainPage{
+    margin-top: 2em;
+    height: 100%;
+    min-width:100%;  
+    background:0;
+}
+
+/* Sets the input line to be 95% of the input container */
+#artistInput{
+    max-width:95%;
+
+}
+
+/* Changes the color of the text inside the input field to black */
+.input-field label {
+    color: #000;
+    
+}
+
+/* Sets the width of the band banner to be 100% of the screen at all times */
+#parallax-banner{
+    width:100%;
+    margin-top:0px;
+
+}
+
+img .one{
+    height: auto;
+    width: auto;
+}
+/* nav a{
+    
+} */
+.card .card-title{
+    font-size:20px;
+    background-color:lightblue;
+    /* border: solid black 1px; */
+    border-radius: 5px;
+}
+#bioCollapse {
+    background-color:lightblue;
+}
+#row4, #row5, #row7 {
+    margin-top:6em;
+}
+
