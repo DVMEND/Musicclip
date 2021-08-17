@@ -1,32 +1,157 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <head>
-        <meta charset="utf-8">
-        <title>Music Clip</title>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></head>
-    </head>
-<body>
-    <nav class="blue">
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo"><img class=one src="assets/images/logo.png" width="200" height="75" alt=""></a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons"><menu</i></menu></i></a>
-        <ul class="right">
-          <li><a href="#">Bio</a></li>
-          <li><a href="#">Album</a></li>
-          <li><a href="#">Videos</a></li>
-        </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Materialize Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css"/>
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Link to Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Materialize min-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="assets\css\style.css">
+
+    <title>Document</title>
+</head>
+
+<body class="screenLimit">
+  <div class="navbar-fixed">
+    <nav class="#607d8b blue-grey hide">
+      <div class="nav-wrapper">
+          <a href="#row3" class="brand-logo"><img class="one" src="assets\Images\main_logo_clear.png" width="150" height="65" alt=""></a>
+          <a href="#" data-target= "mobile-demo" class=" sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li>    
+          <div class="center row">
+             <div class="col s12 " >
+               <div class="row" id="topbarsearch">
+                 <div class="input-field col s6 s12 red-text">
+                   <i class="red-text material-icons prefix">search</i>
+                   <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text" >
+                   </div>
+                 </div>
+               </div>
+             </div>          
+         </li>                     
+        <li><a href="#bio-title">Bio</a></li>
+        <li><a href="#carousel-title">Album</a></li>
+        <li><a href="#carousel-title2">Videos</a></li>
+      </div>
     </nav>
+  </div>
+  <ul class= "sidenav hide" id="mobile-demo">
+    <li>    
+      <div class="center row">
+         <div class="col s12 " >
+           <div class="row" id="topbarsearch">
+             <div class="input-field col s6 s12 red-text">
+               <i class="red-text material-icons prefix">search</i>
+               <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text" >
+               </div>
+             </div>
+           </div>
+         </div>          
+     </li>                     
+        <li><a href="#bio-title">Bio</a></li>
+        <li><a href="#carousel-title">Albums</a></li>
+        <li><a href="#carousel-title2">Videos</a></li>
+  </ul>
 
-    <ul class="sidenav" id="mobile-nav">
-          <li><a href="#">Bio</a></li>
-          <li><a href="#">Albums</a></li>
-          <li><a href="#">Videos</a></li>
-    </ul>
+  <div class="container" id="mainContainer">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+    <div class="row" id="row1">
+      <!-- Makes columns responsive. Pushes 2 columns right when small screen pushes 3 right when medium screen  -->
+        <div class="col s8 m6 push-s2 push-m3 mt-2" id= "col1">
+            <img src="assets\Images\main_logo_clear.png" id ="mainLogo" alt="Main Logo">
+        </div>
+    </div>
+
+    <div class="row" id="row2">
+      <div class="col s12 m6 push-m3" id="col2">
+            <div id="mainPage">
+                <div class="input-field" id="artistInput">
+                    <i class="material-icons prefix">music_note</i>
+                    <input id="icon_prefix2" name= "textInput" type="text" class="validate">
+                    <label for="icon_prefix2">Artist</label>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="row hide" id="row3">
+      <div class="col-12" id="banner">
+    
+      </div>
+    </div>
+
+    <div class="row hide" id="row4">
+      <h4 class="center-align" id="bio-title"></h4>
+      <div class="col s10 m6 push-s1 push-m3" id="bioColumn">
+        <ul class="collapsible" id="bioCollapse">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">info</i>Artist Bio</div>
+            <div class="collapsible-body"><span id="bioText" class="flow-text"></span></div>
+          </li>
+          <li>
+        <div id="bio-div"></div>
+      </div>
+    </div>
+
+
+    <div class="row hide" id="row5">
+      <h4 class="center-align" id="carousel-title"></h4>
+      <div class="col s12 m6 push-m3">
+        <div class="carousel" id="albumCarousel">
+            <!-- <a class="carousel-item" id = "album1" href="#one!"><img src="sample.jpg"></a>
+            <a class="carousel-item" id = "album2" href="#two!"><img src="sample.jpg"></a>
+            <a class="carousel-item" id = "album3" href="#three!"><img src="sample.jpg"></a>
+            <a class="carousel-item" id = "album4" href="#four!"><img src="sample.jpg"></a>
+            <a class="carousel-item" id = "album5" href="#five!"><img src="sample.jpg"></a> -->
+        </div>
+      </div>
+    </div>
+
+    <div class ="row hide" id="row6">
+      <h4 class="center-align" id="albumName"></h4>
+      <div class="col s12 m8 push-m2" id="tracksColumn">
+        <table class="striped centered">
+          <thead>
+            <tr>
+              <th>Track Number</th>
+              <th>Track Name</th>
+              <th>Track Length</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row hide" id="row7">
+      <h4 class="center-align" id="carousel-title2"></h4>
+      <div class="col s12 m6 push-m3">
+        <div class="carousel" id="videoCarousel">
+            
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+<script src="./assets/js/script.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-<html
+</html>
